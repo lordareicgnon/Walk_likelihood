@@ -28,24 +28,29 @@ The symmetric transition matrix of a network of size N.
 ## Walk-likelihood algorithm (WLA):
 
 ```
-WLA(self, init='NMF', U=None, m=None,lm=8,max_iter_WLA=20,thr_WLA=0.99,eps=0.00000001)
+WLA(self, m=None, U=None, init='NMF',lm=8,max_iter_WLA=20,thr_WLA=0.99,eps=0.00000001)
 ```
 
 ### Parameters:
 
-#### init: {'NMF','random', 'custom' }, default= 'NMF'
-The initialization of WLA
-
-#### m
+#### m: int, default= None
+The number of communities for the partition of the network. Not required if initialization is custom.
 
 #### U: ndarray of shape (N, m), default= None
 The matrix U refers to the initialization of the partition of the network of size N into m communities, only required to be specified if the intialization is custom.
 
-#### l_max
+#### init: {'NMF','random', 'custom' }, default= 'NMF'
+The method to initialize U: the partition of the network of size N into m communities for WLA. If U is provided, then the initialization is set to custom.
 
-#### max_iter_WLA
+#### l_max: int, default= 8
+The length of random-walks
 
-#### thr_WLA
+#### max_iter_WLA: int, default= 20
+The maximum number of interations for WLA
+
+#### thr_WLA: int, default= 0.99
+
+
 #### eps
 
 ## Walk-likelihood Community Finder (WLCF):
