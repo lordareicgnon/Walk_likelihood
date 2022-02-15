@@ -60,3 +60,13 @@ WLCF(self,U=[],max_iter_WLCF=50,thr_WLCF=0.99,bifuraction_type='random',**params
 #### bifuraction_type
 
 #### **params
+
+# Example
+
+1. Walk-likelihood Algorithm
+
+```
+model=walk_likelihood(X)
+model.WLA(m=5)
+print(model.clusters)
+```
