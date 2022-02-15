@@ -20,16 +20,13 @@ __init__(self, X)
 #### X: {array-like, sparse matrix} of shape (N, N)
 The symmetric transition matrix of a network of size N.
 
-## Functions:
+## Walk-likelihood algorithm (WLA):
 
-Walk-likelihood algorithm
 ```
 WLA(self,U=[],clusters=[],init='NMF',m=0,lm=8,max_iter_WLA=20,thr_WLA=0.99,eps=0.00000001)
 ```
 
 ### Parameters:
-
-#### self
 
 #### U
 
@@ -39,9 +36,27 @@ WLA(self,U=[],clusters=[],init='NMF',m=0,lm=8,max_iter_WLA=20,thr_WLA=0.99,eps=0
 
 #### m
 
-#### lm
+#### l_max
 
 #### max_iter_WLA
 
 #### thr_WLA
 #### eps
+
+## Walk-likelihood Community Finder (WLCF):
+
+```
+WLCF(self,U=[],max_iter_WLCF=50,thr_WLCF=0.99,bifuraction_type='random',**params)
+```
+
+### Parameters:
+
+#### U
+
+#### max_iter_WLCF
+
+#### thr_WLCF
+
+#### bifuraction_type
+
+#### **params
