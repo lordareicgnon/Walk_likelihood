@@ -8,7 +8,7 @@ We present two novel algorithms for partitioning a network with symmetric edges 
 Here is an overview of the files included in the repository:
 1. ```walk_likelihood.py```: File that defines the class walk_likelihood and the methods WLA and WLCF are implemented as functions of the class.
 2. ```other_functions.py```:
-
+3. ```Example_networks```
 
 # class walk_likelihood
 
