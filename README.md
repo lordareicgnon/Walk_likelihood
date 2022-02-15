@@ -51,7 +51,7 @@ WLA(self,U=[],clusters=[],init='NMF',m=0,lm=8,max_iter_WLA=20,thr_WLA=0.99,eps=0
 ## Walk-likelihood Community Finder (WLCF):
 
 ```
-WLCF(self,U=[],max_iter_WLCF=50,thr_WLCF=0.99,bifuraction_type='random',**params)
+WLCF(self, U=[], max_iter_WLCF=50, thr_WLCF=0.99, bifuraction_type='random', **WLA_params)
 ```
 
 ### Parameters:
@@ -64,7 +64,7 @@ WLCF(self,U=[],max_iter_WLCF=50,thr_WLCF=0.99,bifuraction_type='random',**params
 
 #### bifuraction_type
 
-#### **params
+#### **WLA_params
 
 # Example
 
