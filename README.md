@@ -16,23 +16,15 @@ Here is an overview of the files included in the repository:
 class walk_likelihood:
 ```
 ## Initialization
-```
-__init__(self, X)
-```
-
+```__init__(self, X)```
 ### Parameters:
-
-#### X: _{array-like, sparse matrix} of shape (N, N)_
+__X:__ ___{array-like, sparse matrix} of shape (N, N)___   
 The symmetric transition matrix of a network of size N.
 
+
 ## Walk-likelihood algorithm (WLA):
-
-```
-WLA(self, m=None, U=None, init='NMF',lm=8,max_iter_WLA=20,thr_WLA=0.99,eps=0.00000001)
-```
-
-### Parameters:
- 
+```WLA(self, m=None, U=None, init='NMF',lm=8,max_iter_WLA=20,thr_WLA=0.99,eps=0.00000001)```
+### Parameters: 
 __m:__ ___int, default= None___   
 The number of communities for the partition of the network. Not required if initialization is custom.
 
@@ -54,12 +46,9 @@ The halting threshold for WLA
 __eps:__ ___float, default= 0.00000001___   
 The lowest accepted non-zero value
 
+
 ## Walk-likelihood Community Finder (WLCF):
-
-```
-WLCF(self, U=None, max_iter_WLCF=50, thr_WLCF=0.99, bifuraction_type='random', **WLA_params)
-```
-
+```WLCF(self, U=None, max_iter_WLCF=50, thr_WLCF=0.99, bifuraction_type='random', **WLA_params)```
 ### Parameters:
 
 __U:__ ___ndarray of shape (N, m), default= None___   
@@ -81,15 +70,15 @@ The parameters that need to be specified to the Walk-likelihood Algorithm that w
 
 Both WLA and WLCF have the following attributes
 
-__N__: The number of nodes in the network
+__N:__	 	 The number of nodes in the network
 
-__m:__ The number of communities the network is partitioned into
+__m:__	 	 The number of communities the network is partitioned into
 
-__w__: The outward rate of each node specified in a 1-dimensional array of size N 
+__w:__   	 The outward rate of each node specified in a 1-dimensional array of size N 
 
-__comm_id:__ The community identity of each node specified in a 1-dimensional array of size N
+__comm_id:__ 	 The community identity of each node specified in a 1-dimensional array of size N 
 
-__U:__ The partition of the network of size N into m communities specified in a two-dimensional array of size N X m
+__U:__ 	 	 The partition of the network of size N into m communities specified in a 2-dimensional array of size N X m 
 
 
 # Example
