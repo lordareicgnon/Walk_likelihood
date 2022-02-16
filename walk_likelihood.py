@@ -50,6 +50,9 @@ class walk_likelihood:
         if U is None:
             self.U=np.ones((self.N,1)) #initializing U with the whole as a single community
             self.m=1
+        else:
+            self.U=U
+            self.m=U.shape[1]    
         self.comm_id=np.argmax(self.U,axis=1)
         self.active_comms=np.array(range(self.m))
         self.inactive_comms=[]
