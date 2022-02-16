@@ -3,14 +3,14 @@ We present two novel algorithms for partitioning a network with symmetric edges 
 1. Walk-likelihood algorithm (WLA): WLA produces an optimal partition of network nodes into a given number of communities.
 2. Walk-likelihood community finder (WLCF): WLCF predicts the optimal number of network communities mopt using global moves that involve bifurcation and merging of communities and employs WLA to refine node community assignments at each step.
 
-#Installation
+# Installation
 
 Both these algorithms WLA and WLCF have been implemented as functions of a python class ```walk_likelihood``` defined in the file ```walk_likelihood.py```. The script have been tested with python 3.8.5.
 
 Required modules:
--numpy
--scipy
--sklearn
+- numpy
+- scipy
+- sklearn
 
 # Overview
 
