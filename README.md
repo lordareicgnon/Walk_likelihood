@@ -59,19 +59,19 @@ The lowest accepted non-zero value
 
 The following attributes of a network are obtained by WLA.
 
-__N:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The number of nodes in the network.
+__N:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The number of nodes in the network.
 
-__m:__	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The number of communities the network is partitioned into.
+__m:__	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The number of communities the network is partitioned into.
 
-__w:__  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The outward rate of each node specified in a 1-dimensional array of size N .
+__w:__  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The outward rate of each node specified in a 1-dimensional array of size N .
 
-__U:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The optimal partition of the network of size N into m communities specified in a 2-dimensional array of size N X m.
+__U:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The optimal partition of the network of size N into m communities specified in a 2-dimensional array of size N X m.
 
-__comm_id:__ &nbsp; &nbsp; The community identity of each node for the partition of the network, specified in a 1-dimensional array of size N.
+__comm_id:__ &nbsp; &nbsp; &nbsp; &nbsp; The community identity of each node for the partition of the network, specified in a 1-dimensional array of size N.
 
-__communities:__ &nbsp; &nbsp; A dictionary of communities with value as the nodes that belong to the community.
+__communities:__ &nbsp;  A dictionary of communities with value as the nodes that belong to the community.
 
-__modularity:__ &nbsp; The modularity of the partition of the network.
+__modularity:__ &nbsp; &nbsp; &nbsp; The modularity of the partition of the network.
 
 ### Example
 
@@ -106,19 +106,19 @@ The parameters that need to be specified to the Walk-likelihood Algorithm that w
 
 The following attributes of a network are obtained by WLCF.
 
-__N:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The number of nodes in the network.
+__N:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The number of nodes in the network.
 
-__m:__	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The number of communities the network is partitioned into.
+__m:__	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The number of communities the network is partitioned into.
 
-__w:__  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The outward rate of each node specified in a 1-dimensional array of size N .
+__w:__  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The outward rate of each node specified in a 1-dimensional array of size N .
 
-__U:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The optimal partition of the network of size N into m communities specified in a 2-dimensional array of size N X m.
+__U:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The optimal partition of the network of size N into m communities specified in a 2-dimensional array of size N X m.
 
-__comm_id:__ &nbsp; &nbsp; The community identity of each node for the partition of the network, specified in a 1-dimensional array of size N.
+__comm_id:__ &nbsp; &nbsp; &nbsp; &nbsp; The community identity of each node for the partition of the network, specified in a 1-dimensional array of size N.
 
-__communities:__ &nbsp; &nbsp; A dictionary of communities with value as the nodes that belong to the community.
+__communities:__ &nbsp;  A dictionary of communities with value as the nodes that belong to the community.
 
-__modularity:__ &nbsp; The modularity of the partition of the network.
+__modularity:__ &nbsp; &nbsp; &nbsp; The modularity of the partition of the network.
 ### Example
 
 ```
