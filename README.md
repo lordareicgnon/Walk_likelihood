@@ -110,22 +110,6 @@ __modularity:__ &nbsp; The modularity of the partition of the network.
 
 ```
 model=walk_likelihood(X)
-model.WLA(m=5)
-print(model.clusters)
-```
-
-
-# modularity:
-```modularity(self)```
-
-__Parameters:__ None
-
-__Returns:__ The modularity of the partition of the network.
-
-### Example
-
-```
-model=walk_likelihood(X)
-model.WLA(m=5)
+model.WLCF()
 print(model.clusters)
 ```
