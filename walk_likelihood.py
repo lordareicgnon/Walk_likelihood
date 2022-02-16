@@ -5,59 +5,93 @@ from sklearn.decomposition import NMF
 class walk_likelihood:
     def __init__(self, X):
         self.X=X
-        self.N=X.shape[0]
-        self.w=X.dot(np.ones(self.N))
+        self.N=X.shape[0]                   #size of the network
+        self.w=X.dot(np.ones(self.N))       #outward rate of each node
 
-    def initialize_WLA(self,init,m):
-        if init=='random':
-            self.clusters=np.random.randint(m,size=self.N)
-        elif init=='NMF':
-            model = NMF( n_components=m,init='nndsvda',solver='mu')
-            self.clusters=np.argmax(model.fit_transform(self.X),axis=1)
-        self.U=np.zeros((self.N,m))
-        self.m=m
-        self.U[range(self.N),self.clusters]=1
-
-    def WLA(self,U=[],clusters=[],init='NMF',m=0,l_max=8,max_iter_WLA=20,thr_WLA=0.99,eps=0.00000001):
-        retuns_options='U'
-        if not len(U) ==0:
-            self.U=U
-            self.clusters=np.argmax(U,axis=1)
-            self.m=U.shape[1]
-        elif not len(clusters) ==0:
-            retuns_options='clusters'
-            self.clusters=clusters-np.min(a)
-            self.m=np.max(self.clusters)+1
-            self.U=np.zeros((self.N,self.m))
-            self.U[range(self.N),self.clusters]=1
-        else:
+    def WLA(self,U=None,init='NMF',m=None,l_max=8,max_iter_WLA=100,thr_WLA=0.99,eps=0.00000001,WLCF_call=0):
+        if U is None:                       #initializing U
             self.initialize_WLA(init,m)
-        clusters_prev=self.clusters
+        else:
+            self.U=U
+            self.comm_id=np.argmax(U,axis=1)
+            self.m=U.shape[1]
+        comm_id_prev=self.comm_id
+
         for iter in range(max_iter_WLA):
-            nz_values=sum(self.U)>0
+            nz_values=sum(self.U)>0                 #removes a coommunity if it contains no nodes
             if (np.prod(nz_values)==0):
                 self.U=self.U[:,nz_values]
                 self.m=U.shape[1]
-            dV=self.X.dot(self.U).astype(float)
+            dV=self.X.dot(self.U).astype(float)     #Step 1 of pseudocode
             V=dV
             for i in range(l_max-1):
                 dV=self.X.dot(dV/self.w[:,None])
                 V=V+dV
-            Q=V.T.dot(self.U)/self.w.dot(self.U)
-            g=1/np.diagonal(Q)
+            Q=V.T.dot(self.U)/self.w.dot(self.U)    #Step 2 of pseudocode
+            g=1/np.diagonal(Q)                      #Step 3 of pseudocode
             log_Q=np.log(Q+eps*(Q==0))
             F=np.dot(V,log_Q*g[:,None])-np.outer(self.w,sum(Q*g[:,None]))
-            self.clusters=np.argmax(F,axis=1)
+            self.comm_id=np.argmax(F,axis=1)        #Step 4 of pseudocode
             self.U=np.zeros((self.N,self.m))
-            self.U[range(self.N),self.clusters]=1
-            if nmi(self.clusters,clusters_prev)>thr_WLA:
+            self.U[range(self.N),self.comm_id]=1
+            if nmi(self.comm_id,comm_id_prev)>thr_WLA:  #Step 5 of pseudocode (convergence critera)
                 break
-            clusters_prev=self.clusters
+            comm_id_prev=self.comm_id               #Step 6 of pseudocode
 
         nz_values=sum(self.U)>0
         if (np.prod(nz_values)==0):
             self.U=self.U[:,nz_values]
             self.m=U.shape[1]
+        self.find_modularity()
+        if not WLCF_call:
+            self.find_communities()
+
+    def WLCF(self,max_iter_WLCF=20,U=None,thr_WLCF=0.99,bifuraction_type='random',modularity_tolerance=0.1,**WLA_params):
+        if U is None:
+            self.U=np.ones((self.N,1)) #initializing U with the whole as a single community
+            self.m=1
+        self.comm_id=np.argmax(self.U,axis=1)
+        self.active_comms=np.array(range(self.m))
+        self.inactive_comms=[]
+        self.modularity=-1
+        for iter in range(max_iter_WLCF):
+            self.U_prev=self.U.copy()
+            self.comm_id_prev=self.comm_id.copy()
+            self.m_prev=self.m
+            self.modularity_prev=self.modularity
+            self.bifuraction(bifuraction_type) #bifuracting each community into two (Fig 1 I)
+            merge=1
+            while(merge):
+                self.WLA(U=self.U, WLCF_call=1,**WLA_params) #Fig 1 II
+                merge=self.merge_communities()  #Fig 1 III
+            self.find_active_comms()            #Elimination of spurious bifurcation-merge cycles
+            if ((nmi(self.comm_id_prev,self.comm_id)>thr_WLCF) and self.m_prev==self.m) or (len(self.active_comms)==0) or ((self.modularity_prev-self.modularity)>modularity_tolerance):
+                break                           #convergence criterea
+        self.find_communities()
+
+    def find_communities(self):
+        self.communities={}
+        Ud=(self.U==1)*np.array(range(self.N))[:,None]
+        for i in range(self.m):
+            self.communities['Community '+str(i)]=list(Ud[:,i][Ud[:,i]>0])
+
+    def initialize_WLA(self,init,m):
+        if init=='random':
+            self.comm_id=np.random.randint(m,size=self.N)
+        elif init=='NMF':
+            model = NMF( n_components=m,init='nndsvda',solver='mu')
+            self.comm_id=np.argmax(model.fit_transform(self.X),axis=1)
+        self.U=np.zeros((self.N,m))
+        self.m=m
+        self.U[range(self.N),self.comm_id]=1
+
+    def find_modularity(self):
+        Wtot=np.sum(self.w)
+        wtots=np.dot(np.transpose(self.w),self.U)
+        e_ii=np.sum(self.U*self.X.dot(self.U))/Wtot
+        a_ii=wtots/Wtot
+        self.modularity= (np.sum(e_ii)-np.sum(a_ii*a_ii))
+
 
     def merge_communities(self):
         W=np.dot(self.w.T,self.U)
@@ -93,25 +127,3 @@ class walk_likelihood:
         nac=sum(Ks>(1-thr))==0
         self.active_comms = np.array(range(self.m))[nac]
         self.inactive_comms=np.array(range(self.m))[nac==0]
-
-    def WLCF(self,max_iter_WLCF=50,U=[],thr_WLCF=0.99,bifuraction_type='random',**WLA_params):
-        if len(U)==0:
-            self.U=np.ones((self.N,1))
-            self.m=1
-        self.clusters=np.argmax(self.U,axis=1)
-        self.active_comms=np.array(range(self.m))
-        self.inactive_comms=[]
-        for iter in range(max_iter_WLCF):
-            self.U_prev=self.U.copy()
-            self.clusters_prev=self.clusters.copy()
-            self.m_prev=self.m
-            self.bifuraction(bifuraction_type)
-            merge=1
-            while(merge):
-                self.WLA(U=self.U,**WLA_params)
-                merge=self.merge_communities()
-            if (nmi(self.clusters_prev,self.clusters)>thr_WLCF) and self.m_prev==self.m:
-                break
-            self.find_active_comms()
-            if (len(self.active_comms)==0):
-                break
