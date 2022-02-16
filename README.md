@@ -70,15 +70,15 @@ The parameters that need to be specified to the Walk-likelihood Algorithm that w
 
 Both WLA and WLCF have the following attributes
 
-__N:__	 	 The number of nodes in the network
+__N:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The number of nodes in the network
 
-__m:__	 	 The number of communities the network is partitioned into
+__m:__	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The number of communities the network is partitioned into
 
-__w:__   	 The outward rate of each node specified in a 1-dimensional array of size N 
+__w:__  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The outward rate of each node specified in a 1-dimensional array of size N 
 
-__comm_id:__ 	 The community identity of each node specified in a 1-dimensional array of size N 
+__comm_id:__ &nbsp; The community identity of each node specified in a 1-dimensional array of size N 
 
-__U:__ 	 	 The partition of the network of size N into m communities specified in a 2-dimensional array of size N X m 
+__U:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The partition of the network of size N into m communities specified in a 2-dimensional array of size N X m 
 
 
 # Example
