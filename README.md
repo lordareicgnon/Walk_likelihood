@@ -58,7 +58,7 @@ __w:__  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The outwa
 
 __U:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The optimal partition of the network of size N into m communities specified in a 2-dimensional array of size N X m.
 
-__comm_id:__ &nbsp; &nbsp; The community identity of each node for the corresponding partiion of the network, specified in a 1-dimensional array of size N.
+__comm_id:__ &nbsp; &nbsp; The community identity of each node for the partition of the network, specified in a 1-dimensional array of size N.
 
 __modularity:__ &nbsp; The modularity of the partition of the network.
 
@@ -103,7 +103,7 @@ __w:__  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The outwa
 
 __U:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The optimal partition of the network of size N into m communities specified in a 2-dimensional array of size N X m.
 
-__comm_id:__ &nbsp; &nbsp; The community identity of each node for the corresponding partiion of the network, specified in a 1-dimensional array of size N.
+__comm_id:__ &nbsp; &nbsp; The community identity of each node for the partition of the network, specified in a 1-dimensional array of size N.
 
 __modularity:__ &nbsp; The modularity of the partition of the network.
 ### Example
