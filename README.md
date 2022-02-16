@@ -46,6 +46,29 @@ The halting threshold for WLA
 __eps:__ ___float, default= 0.00000001___   
 The lowest accepted non-zero value
 
+### Attributes:
+
+The following attributes of a network are obtained by WLA
+
+__N:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The number of nodes in the network
+
+__m:__	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The number of communities the network is partitioned into
+
+__w:__  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The outward rate of each node specified in a 1-dimensional array of size N 
+
+__U:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The optimal partition of the network of size N into m communities specified in a 2-dimensional array of size N X m 
+
+__comm_id:__ &nbsp; The community identity of each node for the corresponding partiion of the network, specified in a 1-dimensional array of size N 
+
+### Example
+
+```
+model=walk_likelihood(X)
+model.WLA(m=5)
+print(model.clusters)
+```
+
+
 
 ## Walk-likelihood Community Finder (WLCF):
 ```WLCF(self, U=None, max_iter_WLCF=50, thr_WLCF=0.99, bifuraction_type='random', **WLA_params)```
@@ -66,9 +89,9 @@ The method used for initilizing bifurcation.
 __**WLA_params:__   
 The parameters that need to be specified to the Walk-likelihood Algorithm that will be used by WLCF
 
-## Attributes:
+### Attributes:
 
-Both WLA and WLCF have the following attributes
+The following attributes of a network are obtained by WLCF
 
 __N:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The number of nodes in the network
 
@@ -76,14 +99,27 @@ __m:__	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The number of com
 
 __w:__  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The outward rate of each node specified in a 1-dimensional array of size N 
 
-__comm_id:__ &nbsp; The community identity of each node specified in a 1-dimensional array of size N 
+__U:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The optimal partition of the network of size N into m communities specified in a 2-dimensional array of size N X m 
 
-__U:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The partition of the network of size N into m communities specified in a 2-dimensional array of size N X m 
+__comm_id:__ &nbsp; The community identity of each node for the corresponding partiion of the network, specified in a 1-dimensional array of size N 
+
+### Example
+
+```
+model=walk_likelihood(X)
+model.WLA(m=5)
+print(model.clusters)
+```
 
 
-# Example
+# modularity:
+```modularity(self)```
 
-1. Walk-likelihood Algorithm
+__Parameters:__ None
+
+__Returns:__ The modularity of the partition of the network.
+
+### Example
 
 ```
 model=walk_likelihood(X)
