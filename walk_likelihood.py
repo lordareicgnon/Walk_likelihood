@@ -73,7 +73,7 @@ class walk_likelihood:
         self.communities={}
         Ud=(self.U==1)*np.array(range(self.N))[:,None]
         for i in range(self.m):
-            self.communities['Community '+str(i)]=list(Ud[:,i][Ud[:,i]>0])
+            self.communities['Community '+str(i)]=list(Ud[:,i][self.U[:,i]==1])
 
     def initialize_WLA(self,init,m):
         if init=='random':
