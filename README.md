@@ -33,39 +33,48 @@ WLA(self, m=None, U=None, init='NMF',lm=8,max_iter_WLA=20,thr_WLA=0.99,eps=0.000
 
 ### Parameters:
  
- __m:__ ___int, default= None___ The number of communities for the partition of the network. Not required if initialization is custom.
+__m:__ ___int, default= None___   
+The number of communities for the partition of the network. Not required if initialization is custom.
 
-__U:__ ___ndarray of shape (N, m), default= None___
+__U:__ ___ndarray of shape (N, m), default= None___   
 The matrix U refers to the initialization of the partition of the network of size N into m communities, only required to be specified if the intialization is custom.
 
-##### init: _{'NMF','random', 'custom' }, default= 'NMF'_
+__init:__ ___{'NMF','random', 'custom' }, default= 'NMF'___   
 The method to initialize U: the partition of the network of size N into m communities for WLA. If U is provided, then the initialization is set to custom.
-##### l_max: _int, default= 8_
+
+__l_max:__ ___int, default= 8___   
 The length of random-walks
-##### max_iter_WLA: _int, default= 20_
+
+__max_iter_WLA:__ ___int, default= 20___   
 The maximum number of interations for WLA
-##### thr_WLA: _float, default= 0.99_
+
+__thr_WLA:__ ___float, default= 0.99___   
 The halting threshold for WLA
-##### eps: _float, default= 0.00000001_
+
+__eps:__ ___float, default= 0.00000001___   
 The lowest accepted non-zero value
 
 ## Walk-likelihood Community Finder (WLCF):
 
 ```
-WLCF(self, U=[], max_iter_WLCF=50, thr_WLCF=0.99, bifuraction_type='random', **WLA_params)
+WLCF(self, U=None, max_iter_WLCF=50, thr_WLCF=0.99, bifuraction_type='random', **WLA_params)
 ```
 
 ### Parameters:
 
-##### U: _ndarray of shape (N, m), default= None_
+__U:__ ___ndarray of shape (N, m), default= None___   
 The matrix U refers to the initialization of the partition of the network of size N into m communities, not required generally. 
-##### max_iter_WLCF: _int, default= 50_
+
+__max_iter_WLCF:__ ___int, default= 50___   
 The maximum number of interations for WLCF
-##### thr_WLCF: _float, default= 0.99_
-The halting threshold for WLCF
-##### bifuraction_type: _{'random', 'NMF'}, default= random_
+
+__thr_WLCF:__ ___float, default= 0.99___   
+The maximum number of interations for WLCF
+
+__bifuraction_type:__ ___{'random', 'NMF'}, default= random___   
 The method used for initilizing bifurcation.
-##### **WLA_params 
+
+__**WLA_params:__   
 The parameters that need to be specified to the Walk-likelihood Algorithm that will be used by WLCF
 
 ## Attributes:
