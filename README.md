@@ -5,7 +5,7 @@ We present two novel algorithms for partitioning a network with symmetric edges 
 
 # Installation
 
-Both these algorithms WLA and WLCF have been implemented as functions of a python class ```walk_likelihood``` defined in the file ```walk_likelihood.py```. The script have been tested with python 3.8.5.
+Both these algorithms WLA and WLCF have been implemented as functions of the python class ```walk_likelihood``` defined in the file ```walk_likelihood.py```. The script have been tested with python 3.8.5.
 
 Required modules:
 - numpy
@@ -15,9 +15,9 @@ Required modules:
 # Overview
 
 Here is an overview of the files included in the repository:
-1. ```walk_likelihood.py```: File that defines the class walk_likelihood and the methods WLA and WLCF are implemented as functions of the class.
-2. ```other_functions.py```:
-3. ```Example_networks```
+1. ```walk_likelihood.py```: File that defines the class walk_likelihood.
+2. ```Sample_networks```
+3. ```example.ipynb```: Jupyter notebook which explains the usage of the functions on sample networks.
 
 # class walk_likelihood
 
