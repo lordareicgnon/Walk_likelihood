@@ -81,6 +81,8 @@ __modularity:__ &nbsp; &nbsp; &nbsp; The modularity of the partition of the netw
 >>> X=np.load('Sample_networks/dolphins.npy')
 >>> model=walk_likelihood(X)
 >>> model.WLA(m=5)
+>>> model.N
+62
 >>> model.m
 5
 >>> model.communities
@@ -143,6 +145,8 @@ __modularity:__ &nbsp; &nbsp; &nbsp; The modularity of the partition of the netw
 >>> X=np.load('Sample_networks/dolphins.npy')
 >>> model=walk_likelihood(X)
 >>> model.WLCF()
+>>> model.N
+62
 >>> model.m
 4
 >>> model.communities
