@@ -32,7 +32,7 @@ The symmetric transition matrix of a network of size N.
 
 
 ## Walk-likelihood algorithm (WLA):
-```WLA(self, m=None, U=None, init='NMF',lm=8,max_iter_WLA=20,thr_WLA=0.99,eps=0.00000001)```
+```def WLA(self, m=None, U=None, init='NMF',lm=8,max_iter_WLA=20,thr_WLA=0.99,eps=0.00000001):```
 ### Parameters: 
 __m:__ ___int, default= None___   
 The number of communities for the partition of the network. Not required if initialization is custom.
@@ -82,7 +82,7 @@ print(model.clusters)
 
 
 ## Walk-likelihood Community Finder (WLCF):
-```WLCF(self, U=None, max_iter_WLCF=50, thr_WLCF=0.99, bifuraction_type='random', **WLA_params)```
+```def WLCF(self, U=None, max_iter_WLCF=50, thr_WLCF=0.99, bifuraction_type='random', **WLA_params):```
 ### Parameters:
 
 __U:__ ___ndarray of shape (N, m), default= None___   
