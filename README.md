@@ -76,9 +76,25 @@ __modularity:__ &nbsp; &nbsp; &nbsp; The modularity of the partition of the netw
 ### Example
 
 ```
+>>> import numpy as np
+>>> from walk_likelihood import walk_likelihood
+>>> X=np.load('Sample_networks/dolphins.npy')
 >>> model=walk_likelihood(X)
 >>> model.WLA(m=5)
->>> print(model.clusters)
+>>> model.m
+5
+>>> model.communities
+{'Community 0': [12, 14, 16, 33, 34, 37, 38, 43, 44, 46, 49, 52, 53, 58, 61], 
+'Community 1': [1, 5, 6, 9, 13, 17, 22, 25, 26, 27, 31, 32, 41, 48, 54, 56, 57, 60], 
+'Community 2': [4, 11, 15, 18, 21, 23, 24, 29, 35, 45, 51, 55], 
+'Community 3': [7, 19, 28, 30, 39, 47], 
+'Community 4': [2, 3, 8, 10, 20, 36, 40, 42, 50, 59]}
+>>> model.comm_id
+array([4, 1, 4, 4, 2, 1, 1, 3, 4, 1, 4, 2, 0, 1, 0, 2, 0, 1, 2, 3, 4, 2,
+       1, 2, 2, 1, 1, 1, 3, 2, 3, 1, 1, 0, 0, 2, 4, 0, 0, 3, 4, 1, 4, 0,
+       0, 2, 0, 3, 1, 0, 4, 2, 0, 0, 1, 2, 1, 1, 0, 4, 1, 0])
+>>> model.modularity
+0.47903563941299787
 ```
 
 
