@@ -22,17 +22,17 @@ Here is an overview of the files included in the repository:
 # class walk_likelihood
 
 ```
-class walk_likelihood:
+class walk_likelihood
 ```
 ## Initialization
-```__init__(self, X)```
+```def __init__(self, X)```
 ### Parameters:
 __X:__ ___{array-like, sparse matrix} of shape (N, N)___   
 The symmetric transition matrix of a network of size N.
 
 
 ## Walk-likelihood algorithm (WLA):
-```def WLA(self, m=None, U=None, init='NMF',lm=8,max_iter_WLA=20,thr_WLA=0.99,eps=0.00000001):```
+```def WLA(self, m=None, U=None, init='NMF',lm=8,max_iter_WLA=20,thr_WLA=0.99,eps=0.00000001)```
 ### Parameters: 
 __m:__ ___int, default= None___   
 The number of communities for the partition of the network. Not required if initialization is custom.
@@ -69,20 +69,22 @@ __U:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The optima
 
 __comm_id:__ &nbsp; &nbsp; The community identity of each node for the partition of the network, specified in a 1-dimensional array of size N.
 
+__communities:__ &nbsp; &nbsp; A dictionary of communities with value as the nodes that belong to the community.
+
 __modularity:__ &nbsp; The modularity of the partition of the network.
 
 ### Example
 
 ```
-model=walk_likelihood(X)
-model.WLA(m=5)
-print(model.clusters)
+>>> model=walk_likelihood(X)
+>>> model.WLA(m=5)
+>>> print(model.clusters)
 ```
 
 
 
 ## Walk-likelihood Community Finder (WLCF):
-```def WLCF(self, U=None, max_iter_WLCF=50, thr_WLCF=0.99, bifuraction_type='random', **WLA_params):```
+```def WLCF(self, U=None, max_iter_WLCF=50, thr_WLCF=0.99, bifuraction_type='random', **WLA_params)```
 ### Parameters:
 
 __U:__ ___ndarray of shape (N, m), default= None___   
@@ -114,11 +116,13 @@ __U:__ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The optima
 
 __comm_id:__ &nbsp; &nbsp; The community identity of each node for the partition of the network, specified in a 1-dimensional array of size N.
 
+__communities:__ &nbsp; &nbsp; A dictionary of communities with value as the nodes that belong to the community.
+
 __modularity:__ &nbsp; The modularity of the partition of the network.
 ### Example
 
 ```
-model=walk_likelihood(X)
-model.WLCF()
-print(model.clusters)
+>>> model=walk_likelihood(X)
+>>> model.WLCF()
+>>> print(model.clusters)
 ```
