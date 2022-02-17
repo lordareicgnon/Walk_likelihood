@@ -16,7 +16,7 @@ Required modules:
 
 Here is an overview of the files included in the repository:
 1. ```walk_likelihood.py```: File that defines the class walk_likelihood.
-2. ```Sample_networks```: Sample network to the the algorithms
+2. ```Sample_networks```: Sample network to test the algorithms
 3. ```example.ipynb```: Jupyter notebook which explains the usage of the functions on sample networks.
 
 # class walk_likelihood
