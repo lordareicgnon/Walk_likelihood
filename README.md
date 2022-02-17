@@ -21,9 +21,7 @@ Here is an overview of the files included in the repository:
 
 # class walk_likelihood
 
-```
-class walk_likelihood
-```
+```class walk_likelihood```
 ## Initialization
 ```def __init__(self, X)```
 ### Parameters:
