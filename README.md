@@ -35,7 +35,7 @@ The symmetric transition matrix of a network of size N.
 
 
 ## Walk-likelihood algorithm (WLA):
-```def WLA(self, m=None, U=None, init='NMF',lm=8, max_iter_WLA=20, thr_WLA=0.99, eps=0.00000001)```
+```def WLA(self, m=None, U=None, init='NMF',lm=8, max_iter_WLA=100, thr_WLA=0.99, eps=0.00000001)```
 ### Parameters: 
 __m:__ ___int, default=None___   
 The number of communities for the partition of the network. Not required if initialization is custom.
