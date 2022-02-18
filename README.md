@@ -1,11 +1,14 @@
-# Walk-likelihood methods 
+# Walk-likelihood methods
+(c) Aditya Ballal
 We present two novel algorithms for partitioning a network with symmetric edges (both weighted and unweighted) into non-overlapping communities. 
 1. Walk-likelihood algorithm (WLA): WLA produces an optimal partition of network nodes into a given number of communities.
-2. Walk-likelihood community finder (WLCF): WLCF predicts the optimal number of network communities mopt using global moves that involve bifurcation and merging of communities and employs WLA to refine node community assignments at each step.
+2. Walk-likelihood community finder (WLCF): WLCF predicts the optimal number of network communities using global moves that involve bifurcation and merging of communities and employs WLA to refine node community assignments at each step.
+
+The algorithms are explained in details here.
 
 # Installation
 
-Both these algorithms WLA and WLCF have been implemented as functions of the python class ```walk_likelihood``` defined in the file ```walk_likelihood.py```. The script have been tested with python 3.8.5.
+Both these algorithms WLA and WLCF are implemented as functions of the python class ```walk_likelihood``` defined in the file ```walk_likelihood.py```. The scripts have been tested with python 3.8.5.
 
 Required modules:
 - numpy
@@ -30,27 +33,27 @@ The symmetric transition matrix of a network of size N.
 
 
 ## Walk-likelihood algorithm (WLA):
-```def WLA(self, m=None, U=None, init='NMF',lm=8,max_iter_WLA=20,thr_WLA=0.99,eps=0.00000001)```
+```def WLA(self, m=None, U=None, init='NMF',lm=8, max_iter_WLA=20, thr_WLA=0.99, eps=0.00000001)```
 ### Parameters: 
-__m:__ ___int, default= None___   
+__m:__ ___int, default=None___   
 The number of communities for the partition of the network. Not required if initialization is custom.
 
-__U:__ ___ndarray of shape (N, m), default= None___   
+__U:__ ___ndarray of shape (N, m), default=None___   
 The matrix U refers to the initialization of the partition of the network of size N into m communities, only required to be specified if the intialization is custom.
 
-__init:__ ___{'NMF','random', 'custom' }, default= 'NMF'___   
+__init:__ ___{'NMF','random', 'custom' }, default='NMF'___   
 The method to initialize U: the partition of the network of size N into m communities for WLA. If U is provided, then the initialization is set to custom.
 
-__l_max:__ ___int, default= 8___   
+__l_max:__ ___int, default=8___   
 The length of random-walks
 
-__max_iter_WLA:__ ___int, default= 20___   
-The maximum number of interations for WLA
+__max_iter_WLA:__ ___int, default=20___   
+The maximum number of iterations for WLA
 
-__thr_WLA:__ ___float, default= 0.99___   
+__thr_WLA:__ ___float, default=0.99___   
 The halting threshold for WLA
 
-__eps:__ ___float, default= 0.00000001___   
+__eps:__ ___float, default=0.00000001___   
 The lowest accepted non-zero value
 
 ### Attributes:
@@ -100,19 +103,19 @@ array([4, 1, 4, 4, 2, 1, 1, 3, 4, 1, 4, 2, 0, 1, 0, 2, 0, 1, 2, 3, 4, 2,
 
 
 ## Walk-likelihood Community Finder (WLCF):
-```def WLCF(self, U=None, max_iter_WLCF=50, thr_WLCF=0.99, bifuraction_type='random', **WLA_params)```
+```def WLCF(self, U=None, max_iter_WLCF=50, thr_WLCF=0.99, bifurcation_type='random', **WLA_params)```
 ### Parameters:
 
-__U:__ ___ndarray of shape (N, m), default= None___   
+__U:__ ___ndarray of shape (N, m), default=None___   
 The matrix U refers to the initialization of the partition of the network of size N into m communities, not required generally. 
 
-__max_iter_WLCF:__ ___int, default= 50___   
+__max_iter_WLCF:__ ___int, default=50___   
+The maximum number of iterations for WLCF
+
+__thr_WLCF:__ ___float, default=0.99___   
 The maximum number of interations for WLCF
 
-__thr_WLCF:__ ___float, default= 0.99___   
-The maximum number of interations for WLCF
-
-__bifuraction_type:__ ___{'random', 'NMF'}, default= random___   
+__bifurcation_type:__ ___{'random', 'NMF'}, default=random___   
 The method used for initilizing bifurcation.
 
 __**WLA_params:__   
