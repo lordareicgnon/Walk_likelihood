@@ -1,6 +1,6 @@
 # Walk-likelihood methods
 
-(c) Aditya Ballal
+(c) 2022 Aditya Ballal
 
 We present two novel algorithms for partitioning a network with symmetric edges (both weighted and unweighted) into non-overlapping communities. 
 1. Walk-likelihood algorithm (WLA): WLA produces an optimal partition of network nodes into a given number of communities.
