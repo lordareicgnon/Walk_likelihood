@@ -46,7 +46,7 @@ class walk_likelihood:
         if not WLCF_call:
             self.find_communities()
 
-    def WLCF(self,max_iter_WLCF=20,U=None,thr_WLCF=0.99,bifuraction_type='random',modularity_tolerance=0.1,**WLA_params):
+    def WLCF(self,max_iter_WLCF=50,U=None,thr_WLCF=0.99,bifurcation_type='random',modularity_tolerance=0.1,**WLA_params):
         if U is None:
             self.U=np.ones((self.N,1)) #initializing U with the whole as a single community
             self.m=1
@@ -62,7 +62,7 @@ class walk_likelihood:
             self.comm_id_prev=self.comm_id.copy()
             self.m_prev=self.m
             self.modularity_prev=self.modularity
-            self.bifuraction(bifuraction_type) #bifuracting each community into two (Fig 1 I)
+            self.bifurcation(bifurcation_type) #bifurcating each community into two (Fig 1 I)
             merge=1
             while(merge):
                 self.WLA(U=self.U, WLCF_call=1,**WLA_params) #Fig 1 II
@@ -111,10 +111,10 @@ class walk_likelihood:
         self.m=self.U.shape[1]
         return merge
 
-    def bifuraction(self,bifuraction_type):
-        if bifuraction_type=='random':
+    def bifurcation(self,bifuraction_type):
+        if bifurcation_type=='random':
             U2=self.U[:,self.active_comms]*np.random.randint(2,size=self.N)[:,None]
-        elif bifuraction_type=='NMF':
+        elif bifurcation_type=='NMF':
             U2=np.zeros((self.N,len(self.active_comms)))
             i=0
             for c in self.active_comms:
