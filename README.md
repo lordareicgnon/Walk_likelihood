@@ -1,4 +1,5 @@
 # Walk-likelihood methods
+
 (c) Aditya Ballal
 
 We present two novel algorithms for partitioning a network with symmetric edges (both weighted and unweighted) into non-overlapping communities. 
