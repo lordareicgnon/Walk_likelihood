@@ -49,7 +49,7 @@ The method to initialize U: the partition of the network of size N into m commun
 __l_max:__ ___int, default=8___   
 The length of random-walks
 
-__max_iter_WLA:__ ___int, default=20___   
+__max_iter_WLA:__ ___int, default=100___   
 The maximum number of iterations for WLA
 
 __thr_WLA:__ ___float, default=0.99___   
