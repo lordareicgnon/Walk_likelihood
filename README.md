@@ -21,7 +21,7 @@ Required modules:
 
 Here is an overview of the files included in the repository:
 1. ```walk_likelihood.py```: File that defines the class walk_likelihood.
-2. ```Sample_networks```: Sample networks to test the algorithms. Les_miserable_weighted.npy, dolphins.npy and Sample_LFR.npz contain network files for weighted Les Miserable network, Dolphins social network and a sample LFR benchmark network respectively. Sample_LFR_target.npy contains the expected community structure of the LFR benchmark network. 
+2. ```Sample_networks```: Sample networks to test the algorithms. ```Les_miserable_weighted.npy```, ```dolphins.npy``` and ```Sample_LFR.npz``` contain network files for weighted Les Miserable network, Dolphins social network and a sample LFR benchmark network respectively. ```Sample_LFR_target.npy`` contains the expected community structure of the LFR benchmark network. 
 3. ```example.ipynb```: Jupyter notebook which explains the usage of the functions on sample networks.
 
 # class walk_likelihood
