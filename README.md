@@ -6,7 +6,7 @@ We present two novel algorithms for partitioning a network with symmetric edges 
 1. Walk-likelihood algorithm (WLA): WLA produces an optimal partition of network nodes into a given number of communities.
 2. Walk-likelihood community finder (WLCF): WLCF predicts the optimal number of network communities using global moves that involve bifurcation and merging of communities and employs WLA to refine node community assignments at each step.
 
-The algorithms are explained in details here.
+The algorithms are explained in detail here.
 
 # Installation
 
@@ -35,7 +35,7 @@ The symmetric transition matrix of a network of size N.
 
 
 ## Walk-likelihood algorithm (WLA):
-```def WLA(self, m=None, U=None, init='NMF',lm=8, max_iter_WLA=100, thr_WLA=0.99, eps=0.00000001)```
+```def WLA(self, m=None, U=None, init='NMF', lm=8, max_iter_WLA=100, thr_WLA=0.99, eps=0.00000001)```
 ### Parameters: 
 __m:__ ___int, default=None___   
 The number of communities for the partition of the network. Not required if initialization is custom.
@@ -43,7 +43,7 @@ The number of communities for the partition of the network. Not required if init
 __U:__ ___ndarray of shape (N, m), default=None___   
 The matrix U refers to the initialization of the partition of the network of size N into m communities, only required to be specified if the intialization is custom.
 
-__init:__ ___{'NMF','random', 'custom' }, default='NMF'___   
+__init:__ ___{'NMF', 'random', 'custom' }, default='NMF'___   
 The method to initialize U: the partition of the network of size N into m communities for WLA. If U is provided, then the initialization is set to custom.
 
 __l_max:__ ___int, default=8___   
@@ -115,7 +115,7 @@ __max_iter_WLCF:__ ___int, default=50___
 The maximum number of iterations for WLCF
 
 __thr_WLCF:__ ___float, default=0.99___   
-The maximum number of interations for WLCF
+The halting threshold for WLCF
 
 __bifurcation_type:__ ___{'random', 'NMF'}, default=random___   
 The method used for initilizing bifurcation.
