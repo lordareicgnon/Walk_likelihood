@@ -6,7 +6,7 @@ We present two novel algorithms for partitioning a network with symmetric edges 
 1. Walk-likelihood algorithm (WLA): WLA produces an optimal partition of network nodes into a given number of communities.
 2. Walk-likelihood community finder (WLCF): WLCF predicts the optimal number of network communities using global moves that involve bifurcation and merging of communities and employs WLA to refine node community assignments at each step.
 
-The algorithms are explained in detail here (https://nam02.safelinks.protection.outlook.com/?url=http%3A%2F%2Farxiv.org%2Fabs%2F2202.11171&amp;data=04%7C01%7Cmorozova%40physics.rutgers.edu%7C7b70c9201e3b4026d9ae08d9f734d906%7Cb92d2b234d35447093ff69aca6632ffe%7C1%7C0%7C637812628622108199%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&amp;sdata=V0EgpxnmuxIXLsDU47UMlyAo5j4ewDvkNxEMmkJkROE%3D&amp;reserved=0).
+The algorithms are explained in detail here (https://arxiv.org/abs/2202.11171).
 
 # Installation
 
