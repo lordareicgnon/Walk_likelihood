@@ -111,7 +111,7 @@ class walk_likelihood:
         self.m=self.U.shape[1]
         return merge
 
-    def bifurcation(self,bifuraction_type):
+    def bifurcation(self,bifurcation_type):
         if bifurcation_type=='random':
             U2=self.U[:,self.active_comms]*np.random.randint(2,size=self.N)[:,None]
         elif bifurcation_type=='NMF':
